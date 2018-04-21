@@ -1,0 +1,5 @@
+docker images
+REPOSITORY                     TAG                 IMAGE ID            CREATED             SIZE
+eromanchenko/ubuntu-tmp-file   latest              86f98363abd7        8 seconds ago       113MB
+ubuntu                         16.04               c9d990395902        8 days ago          113MB
+hello-world                    latest              e38bc07ac18e        9 days ago          1.85kB
