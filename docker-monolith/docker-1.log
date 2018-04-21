@@ -3,3 +3,12 @@ REPOSITORY                     TAG                 IMAGE ID            CREATED  
 eromanchenko/ubuntu-tmp-file   latest              86f98363abd7        8 seconds ago       113MB
 ubuntu                         16.04               c9d990395902        8 days ago          113MB
 hello-world                    latest              e38bc07ac18e        9 days ago          1.85kB
+
+Результаты сравнения вывода команды docker inspect для images и для container, запущенный из этого images:
+у docker images есть слои файловой системы из которых он состоит (FSLayers)
+у него есть id container-а из которого он был создан
+images является шаблоном для запуска container
+
+у docker container есть состояние (state)
+у него есть id images из которого он был создан
+у него есть опции запуска и лимиты системных ресурсов
