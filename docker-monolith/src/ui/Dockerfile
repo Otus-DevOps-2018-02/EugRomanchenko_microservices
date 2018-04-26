@@ -1,14 +1,15 @@
-FROM ruby:2.2
-RUN apt-get update -qq && apt-get install --no-install-recommends -y build-essential \
-  && apt-get clean \
-  && rm -rf /var/lib/apt/lists/*
+FROM alpine:3.7
 
 ENV APP_HOME /app
 RUN mkdir "$APP_HOME"
-
 WORKDIR $APP_HOME
 COPY Gemfile* "$APP_HOME"/
-RUN bundle install
+
+RUN apk --no-cache add ruby ruby-io-console \ 
+  && apk --no-cache add --virtual build-dependencies ruby-dev ruby-bundler build-base \
+  && bundle install \
+  && apk del build-dependencies
+
 COPY . "$APP_HOME"
 
 ENV POST_SERVICE_HOST post
