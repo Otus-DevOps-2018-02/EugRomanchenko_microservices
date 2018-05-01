@@ -1,0 +1,6 @@
+project = "project_id"
+region = "region"
+zone = "zone"
+disk_image = "ubuntu-1604-lts"
+public_key_path = "path_to_public_key"
+count = "2"
