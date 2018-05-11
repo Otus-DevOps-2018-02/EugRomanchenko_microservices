@@ -6,3 +6,4 @@
 .terraform/
 *.retry
 *gce.ini
+*hadolint
