@@ -42,6 +42,10 @@ deploy_dev_job:
 branch review:
   stage: review
   script: echo "Deploy to $CI_ENVIRONMENT_SLUG"
+  services: google/cloud-sdk:latest
+  script:
+    - gcloud config set project docker-201811
+    - gcloud compute instances create test --machine-type f1-micro --zone=europe-west1-b --image-family=ubuntu-1604-lts
   environment:
     name: branch/$CI_COMMIT_REF_NAME
     url: http://$CI_ENVIRONMENT_SLUG.example.com
