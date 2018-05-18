@@ -42,7 +42,7 @@ deploy_dev_job:
 branch review:
   stage: review
   services:
-    - google/cloud-sdk:latest
+    - mhindery/dockergcloud
   script:
     - gcloud config set project docker-201811
     - gcloud compute instances create test --machine-type f1-micro --zone=europe-west1-b --image-family=ubuntu-1604-lts
