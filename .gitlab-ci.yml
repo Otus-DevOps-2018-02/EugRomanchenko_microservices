@@ -41,7 +41,7 @@ branch review:
   stage: review
   image: mhindery/dockergcloud
   script:
-    - echo $DOCKER_SA_JSON >> /tmp/google_sa.json
+    - echo $GOOGLE_SA_JSON >> /tmp/google_sa.json
     - gcloud auth activate-service-account --key-file /tmp/google_sa.json
     - gcloud config set project docker-201811
     - gcloud compute instances create test --machine-type f1-micro --zone=europe-west1-b --image-family=ubuntu-1604-lts
