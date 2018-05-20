@@ -60,7 +60,7 @@ kill branch review:
     - echo $GOOGLE_SA_JSON >> /tmp/google_sa.json
     - gcloud auth activate-service-account --key-file /tmp/google_sa.json
     - gcloud config set project docker-201811
-    - gcloud compute instances delete gitlab-ci-review-${CI_COMMIT_REF_NAME}-${CI_PIPELINE_ID} --zone=europe-west1-b
+    - gcloud compute instances delete -q gitlab-ci-review-${CI_COMMIT_REF_NAME}-${CI_PIPELINE_ID} --zone=europe-west1-b 
   when: manual
 
 staging:
