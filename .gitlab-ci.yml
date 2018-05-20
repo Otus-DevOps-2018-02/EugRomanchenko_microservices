@@ -11,7 +11,7 @@ variables:
 build_job:
   stage: build
   script:
-    - echo 'Building'
+    - echo 'Building is done'
 
 test_unit_job:
   stage: test
