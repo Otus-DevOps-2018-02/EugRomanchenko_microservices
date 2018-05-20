@@ -13,7 +13,7 @@ variables:
 
 build_job:
   image: docker:latest
-  services:
+  service:
     - docker:dind
   stage: build
   script:
