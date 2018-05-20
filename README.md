@@ -127,4 +127,4 @@ EugRomanchenko microservices repository
  - Настроен Node Exporter для сбора внутренних метрик DOcker контейнера на котором запущен Prometheus
  - В рамках одного из заданий со * был настроен MongoDB Exporter для сбора метрик и мониторинга базы данных Mongo DB
  - В рамках одного из заданий со * был настроен Blackbox мониторинг микросервисов (выявление случаев отдачи HTTP Code 2xx сервисами)
- - Ссылка на Docker Hub с образами - [Docker Hub Eugromanchenko]{https://hub.docker.com/r/eugromanchenko/}
+ - Ссылка на Docker Hub с образами - [Docker Hub Eugromanchenko](https://hub.docker.com/r/eugromanchenko/)
