@@ -1,26 +1,26 @@
-image: ruby:2.4.2
-
 stages:
   - build
   - test
-  - deploy
+  - review
+  - stage
+  - production
 
 variables:
   DATABASE_URL: 'mongodb://mongo/user_posts' 
 
-before_script:
-  - cd reddit
-  - bundle install
-
 build_job:
   stage: build
   script:
-    - echo 'Building'
+    - echo 'Building is done'
 
 test_unit_job:
   stage: test
+  image: ruby:2.4.2
   services:
     - mongo:latest
+  before_script:
+    - cd reddit
+    - bundle install
   script:
     - ruby simpletest.rb
 
@@ -29,7 +29,58 @@ test_integration_job:
   script:
     - echo 'Testing 2'
 
-deploy_job:
-  stage: deploy
+deploy_dev_job:
+  stage: review
   script:
     - echo 'Deploy'
+  environment:
+    name: dev
+    url: http://dev.example.com
+
+branch review:
+  stage: review
+  image: mhindery/dockergcloud
+  script:
+    - echo $GOOGLE_SA_JSON >> /tmp/google_sa.json
+    - gcloud auth activate-service-account --key-file /tmp/google_sa.json
+    - gcloud config set project docker-201811
+    - gcloud compute instances create gitlab-ci-review-${CI_COMMIT_REF_NAME}-${CI_PIPELINE_ID} --machine-type f1-micro --zone=europe-west1-b --image-project=ubuntu-os-cloud --image-family=ubuntu-1604-lts
+  environment:
+    name: branch/$CI_COMMIT_REF_NAME
+    url: http://$CI_ENVIRONMENT_SLUG.example.com
+  only:
+    - branches
+  except:
+    - master
+
+kill branch review:
+  stage: review
+  image: mhindery/dockergcloud
+  script:
+    - echo $GOOGLE_SA_JSON >> /tmp/google_sa.json
+    - gcloud auth activate-service-account --key-file /tmp/google_sa.json
+    - gcloud config set project docker-201811
+    - gcloud compute instances delete -q gitlab-ci-review-${CI_COMMIT_REF_NAME}-${CI_PIPELINE_ID} --zone=europe-west1-b 
+  when: manual
+
+staging:
+  stage: stage
+  when: manual
+  only:
+    - /^\d+\.\d+.\d+/
+  script:
+    - echo 'Deploy'
+  environment:
+    name: stage
+    url: http://beta.example.com
+
+production:
+  stage: production
+  when: manual
+  only:
+    - /^\d+\.\d+.\d+/
+  script:
+    - echo 'Deploy'
+  environment:
+    name: production
+    url: https://example.com
