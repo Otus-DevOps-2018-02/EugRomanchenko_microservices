@@ -1,7 +1,7 @@
 version: '3.3'
 services:
   prometheus:
-    image: ${USERNAME}/prometheus
+    image: ${USER_NAME}/prometheus
     ports:
       - '9090:9090'
     volumes:
@@ -54,7 +54,7 @@ services:
     networks:
       - front_net
   grafana:
-    image: grafana/grafana:5.0.0
+    image: ${USER_NAME}/grafana:5.0.0
     volumes:
       - grafana_data:/var/lib/grafana
     environment:
