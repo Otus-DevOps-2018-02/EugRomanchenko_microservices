@@ -128,3 +128,28 @@ EugRomanchenko microservices repository
  - В рамках одного из заданий со * был настроен MongoDB Exporter для сбора метрик и мониторинга базы данных Mongo DB
  - В рамках одного из заданий со * был настроен Blackbox мониторинг микросервисов (выявление случаев отдачи HTTP Code 2xx сервисами)
  - Ссылка на Docker Hub с образами - [Docker Hub Eugromanchenko](https://hub.docker.com/r/eugromanchenko/)
+
+## ДЗ № 20 Мониторинг приложения и инфраструктуры
+
+ - [x] Основное ДЗ
+ - [x] Задание со *
+ - [x] Задание с **
+
+### В процессе сделано:
+
+ - Составлены отдельные docker-compose файлы для microservice и инструментов мониторинга
+ - Добавлено использование cAdvisor для просмотра метрик Docker контейнеров
+ - Пересобрали Docker Image Prometheus
+ - Изучили интерфейс cAdvisor и список метрик в нём
+ - Установили Grafana с помощью docker-compose-monitoring.yml
+ - Подключили к Grafana источник данных Prometheus
+ - Загрузили с сайта [Grafana Dashboards](https://grafana.com/dashboards) Dashboard для мониторинга Docker контейнеров (сохранили как DockerMonitoring.json)
+ - Произвели импорт полученного Dashboard в Grafana
+ - Создали Dashborad с использованием функционала отдачи метрик Docker конейнерами с нашими microservices (сохранили как UI_Service_Monitoring.json)
+ - Воспользовались возможностью отдачи нашими mircoservices бизнес метрик и построили на их основе отдельный Dashboard (сохранили как Business_logic_Monitoring.json)
+ - Установили и настроили Alertmanager для Prometheus
+ - Настроили отправку оповещений о проблемах в Slack канал #eugeny_romanchenko
+ - Создали простой Alert Rule (cрабатывает в случае недоступности любого из компонент нашего приложения)
+ - В качестве задания со * воспользовались экспериментальной функцией отдачи метрик Docker Daemon серверу Prometheus
+ - В качестве задания с ** настроили автоматическую настройку Grafana Datasource (Prometheus) и подключение настроенных в ходе данного ДЗ Dashboards c использованием нового функционала provisioning появившегося в Grafana 5.0.0
+ - Ссылка на Docker Hub с образами - [Docker Hub Eugromanchenko](https://hub.docker.com/r/eugromanchenko/)
