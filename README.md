@@ -182,6 +182,6 @@ EugRomanchenko microservices repository
 
 ### В процессе сделано:
 
- - Созданы базовые конфиги для Deployment нащих microservice в будущий Kubernetes Cluster
+ - Созданы базовые конфиги для Deployment наших microservice в будущий Kubernetes Cluster
  - Пройден tutorial "Kubernetes The Hard Way" с целью изучения основных компонент и процессов при работе с Kubernetes
  - Произведен тестовый запус наших приложений в свежесозданном Kubernetes Cluster `kubectl apply kubernetes/reddit/*yml`
