@@ -176,7 +176,7 @@ EugRomanchenko microservices repository
  - В рамках задания с *** на основе поломанного кода приложения были собраны отдельные docker images с tag bugged
  - Произведен запуск сервисов на основе поломанного кода и произведен дебаг проблемы долгой загрузки Post-ов в web интерфейсе
 
-### ДЗ № 22 Введение в Kubernetes
+## ДЗ № 22 Введение в Kubernetes
 
  - [x] Основное ДЗ
 
@@ -186,7 +186,7 @@ EugRomanchenko microservices repository
  - Пройден tutorial "Kubernetes The Hard Way" с целью изучения основных компонент и процессов при работе с Kubernetes
  - Произведен тестовый запус наших приложений в свежесозданном Kubernetes Cluster `kubectl apply kubernetes/reddit/*yml`
 
-### ДЗ № 23 Kubernetes. Запуск кластера и приложения. Модель безопасности.
+## ДЗ № 23 Kubernetes. Запуск кластера и приложения. Модель безопасности.
 
  - [x] Основное ДЗ
 
@@ -197,3 +197,16 @@ EugRomanchenko microservices repository
  - Создан Kubernetes Cluster в Google Cloud (GKE)
  - В GKE был произведен деплой наших микросервисов
  - Для GKE был включен Kubernetes Dashboard и были выданы права соответствующему Service Account-у
+
+## ДЗ № 24 Kubernetes. Network. Storage.
+
+ - [x] Основное ДЗ
+
+### В процессе сделано:
+
+ - Использован тип сервиса LoadBalancer
+ - Включено и настроено использование Ingress контроллера для взаимодействия приложений внутри кластера с внешним миром
+ - С помощью Ingress настроена балансировка на L-7 уровне (http)
+ - Настроена TLS Termination (https)
+ - Для задачи ограничения доступа к микросервису с DB был использован функционал Network Policy
+ - Настроено использование Mongo DB различных типов Volume (Empty Dir, Persistent Disk. Persistent Volume, Storage Class)
