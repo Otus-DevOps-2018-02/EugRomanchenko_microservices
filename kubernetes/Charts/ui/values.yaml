@@ -6,3 +6,8 @@ service:
 image:
   repository: eugromanchenko/ui
   tag: latest
+
+postHost:
+postPort:
+commentHost:
+commentPort:
