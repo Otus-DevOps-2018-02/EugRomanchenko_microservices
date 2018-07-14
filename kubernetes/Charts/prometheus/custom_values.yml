@@ -816,6 +816,8 @@ serverFiles:
           - source_labels: [__meta_kubernetes_service_label_app]
             action: keep
             regex: reddit
+          - action: labelmap
+            regex: __meta_kubernetes_service_label_(.+)
 
 networkPolicy:
   ## Enable creation of NetworkPolicy resources.
