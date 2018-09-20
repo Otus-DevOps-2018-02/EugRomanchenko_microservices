@@ -8,3 +8,5 @@
 *gce.ini
 *hadolint
 *.env
+*.crt
+*.key
