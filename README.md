@@ -185,3 +185,15 @@ EugRomanchenko microservices repository
  - Созданы базовые конфиги для Deployment наших microservice в будущий Kubernetes Cluster
  - Пройден tutorial "Kubernetes The Hard Way" с целью изучения основных компонент и процессов при работе с Kubernetes
  - Произведен тестовый запус наших приложений в свежесозданном Kubernetes Cluster `kubectl apply kubernetes/reddit/*yml`
+
+### ДЗ № 23 Kubernetes. Запуск кластера и приложения. Модель безопасности.
+
+ - [x] Основное ДЗ
+
+### В процессе сделано
+
+ - Установлены инструменты kubectl и minikube
+ - Созданы YAML конфиги для запуска микросервисов в локальном Kubernetes Cluster-е развёрнутом с помощью minikube
+ - Создан Kubernetes Cluster в Google Cloud (GKE)
+ - В GKE был произведен деплой наших микросервисов
+ - Для GKE был включен Kubernetes Dashboard и были выданы права соответствующему Service Account-у
