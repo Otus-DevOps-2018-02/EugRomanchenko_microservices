@@ -210,3 +210,19 @@ EugRomanchenko microservices repository
  - Настроена TLS Termination (https)
  - Для задачи ограничения доступа к микросервису с DB был использован функционал Network Policy
  - Настроено использование Mongo DB различных типов Volume (Empty Dir, Persistent Disk. Persistent Volume, Storage Class)
+
+## ДЗ № 25 CI/CD в Kubernetes
+
+ - [x] Основное ДЗ
+
+### В процессе сделано:
+
+ - Установлен и сконфигурирован Helm в ранее созданном Google Kubernetes Cluster
+ - Подготовлены и задеплоены Charts пакеты с приложениями comment, ui и post
+ - При подготовке Charts были использваны возможности параметризации через template function
+ - Для удобства управлениями зависимостями был создан общий Chart reddit
+ - Произведен деплой Chart reddit
+ - Был произведен запуск Gitlab CE с помощью Helm Chart
+ - В Gitlab были созданы 4 отдельных публичных репозитория - ui, comment, post, reddit-deploy
+ - Код приложений был перенесен в соответствующие репозитории
+ - Для всех репозиториев были сформированы файлы gitlab-ci.yml для настройки соответствующих Pipeline для управления процессами CI/CD
