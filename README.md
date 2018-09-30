@@ -226,3 +226,18 @@ EugRomanchenko microservices repository
  - В Gitlab были созданы 4 отдельных публичных репозитория - ui, comment, post, reddit-deploy
  - Код приложений был перенесен в соответствующие репозитории
  - Для всех репозиториев были сформированы файлы gitlab-ci.yml для настройки соответствующих Pipeline для управления процессами CI/CD
+
+## ДЗ № 26 Kubernetes. Мониторинг и логирование
+
+ - [x] Основное ДЗ
+
+### В процессе сделано:
+ 
+ - Для GKE установлен и настроен ingress контроллер nginx в виде Helm Chart
+ - Развернут Prometheus в GKE
+ - Для Prometheus были добавлены job-ы для мониторинга метрик компонент нашего приложения
+ - Был использован механизм Service Discovery для поиска наших сервисов в k8s
+ - Развернута Grafana в GKE
+ - Для Grafana добавлены dashboard для мониторинга Kubernetes Cluster, ранее созданные dashboard Business_Logis_Monitoring.json и UI_Service_Monitoring.json
+ - Настроены template для возможности выбора namespace при построении графиков
+ - Развернут EFK в GKE
